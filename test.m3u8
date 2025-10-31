@@ -1,0 +1,4 @@
+#EXTM3U
+#EXT-X-TARGETDURATION:10000
+#EXTINF:0 tvg-type="movie" ,Vegas @ Seattle-A
+https://skypres.global.ssl.fastly.net/1704296815~4fd9eafae56e9d03b5e12207388a544e/perdias/20230205732/chunks.m3u8
