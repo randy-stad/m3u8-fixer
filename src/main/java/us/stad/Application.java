@@ -12,7 +12,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-@Command(name = "m3u8-fixer", mixinStandardHelpOptions = true, version = "1.0", description = "Fixes my Uzzu m3u8 file for use with Channels.")
+@Command(name = "m3u8-fixer", mixinStandardHelpOptions = true, version = "1.0", description = "Fixes my m3u8 file for use with Channels.")
 class Application implements Callable<Integer> {
 
     @Parameters(index = "0", description = "The input m3u8 URL to fix.")
@@ -20,6 +20,10 @@ class Application implements Callable<Integer> {
 
     @Option(names = { "-o", "--output" }, description = "Output file, defaults to stdout.")
     private File output;
+
+    @Option(names = { "-s", "--source" }, description = "M3U source, used to customize fixes.")
+    private String source = "uzzu";
+
 
     @Override
     public Integer call() throws Exception {
@@ -36,7 +40,11 @@ class Application implements Callable<Integer> {
                 if (line.startsWith("#EXTINF")) {
                     EXTINF extinf = new EXTINF(line);
                     // do the magic here for Uzzu, will add others later
-                    extinf.addChannelsUzzuTags();
+                    if (source.equalsIgnoreCase("uzzu")) {
+                        extinf.addChannelsUzzuTags();
+                    } else if (source.equalsIgnoreCase("tubi")) {
+                        extinf.addChannelsTubiTags();
+                    }
                     writer.println(extinf.toString());
                 } else {
                     writer.println(line);

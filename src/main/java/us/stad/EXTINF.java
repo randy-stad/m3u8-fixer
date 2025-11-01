@@ -50,6 +50,10 @@ public class EXTINF {
         }
     }
 
+    public void addChannelsTubiTags() {
+        addTag("tvc-guide-genres", "Tubi");
+    }
+
     /**
      * This assumes we are coming from an Uzzu feed and adding Channels specific tags.
      */
