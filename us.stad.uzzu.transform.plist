@@ -3,12 +3,12 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>launched.channels.uzzu.transform</string>
+    <string>us.stad.uzzu.transform</string>
     <key>ProgramArguments</key>
     <array>
       <string>sh</string>
       <string>-c</string>
-      <string>java -jar /Users/mush/src/m3u8-fixer/target/m3u8-fixer-1.0-SNAPSHOT-jar-with-dependencies.jar https://uzzu.tv/app2/arelem@mac.com -o /Users/mush/uzzu.m3u8</string>
+      <string>/Users/mush/src/m3u8-fixer/uzzu-transform.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <array>
@@ -110,6 +110,10 @@
       </dict>
     </array>
     <key>WorkingDirectory</key>
-    <string>/Users/mush</string>
+    <string>/Users/mush/volumes/channels/m3u8</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/mush/volumes/channels/m3u8/uzzu-error.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/mush/volumes/channels/m3u8/uzzu-output.log</string>
   </dict>
 </plist>
