@@ -56,17 +56,22 @@ public class EXTINF {
     public void addChannelsUzzuTags() {
         if (tags.containsKey("group-title")) {
             final String title = tags.get("group-title");
+            final String name = (tags.containsKey("tvg-name") ? tags.get("tvg-name") : "");
             addTag("tvc-guide-genres", "Uzzu");
-            if (title.contains("NHL")) {
+            if (title.contains("NHL") || name.contains("NHL") || name.contains("Altitude")) {
                 addTag("tvc-guide-genres", "Hockey");
                 addTag("tvc-guide-tags", "Live");
             }
-            if (title.contains("NFL")) {
+            if (title.contains("NFL") || name.contains("Red Zone"))  {
                 addTag("tvc-guide-genres", "Football");
                 addTag("tvc-guide-tags", "Live");
             }
             if (title.contains("NBA")) {
                 addTag("tvc-guide-genres", "Basketball");
+                addTag("tvc-guide-tags", "Live");
+            }
+            if (title.contains("MLB") || name.contains("MLB")) {
+                addTag("tvc-guide-genres", "Baseball");
                 addTag("tvc-guide-tags", "Live");
             }
             if (title.contains("Live")) {
